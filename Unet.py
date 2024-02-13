@@ -10,9 +10,7 @@ class UNet(nn.Module):
             layers = []
             layers += [nn.Conv2d(in_channels=in_channels, out_channels=out_channels, 
                                 kernel_size=kernel_size, stride=stride, padding=padding, bias=bias)]
-            # layers += [nn.BatchNorm2d(num_features=out_channels)]
             layers += [nn.InstanceNorm2d(num_features=out_channels)]
-            #layers += [nn.ReLU()]
             layers += [nn.LeakyReLU()]
 
             cbr = nn.Sequential(*layers)
@@ -110,8 +108,6 @@ class UNet(nn.Module):
         dec1_1 = self.dec1_1(dec1_2)
 
         out = self.fc(dec1_1)
-
-        #return F.sigmoid(out)
         return out
 
 
