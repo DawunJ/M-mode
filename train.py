@@ -7,7 +7,7 @@ import monai
 from torch.utils.data import DataLoader
 from torch.optim import lr_scheduler
 
-from ./Model/Unet import *
+from Model.Unet import *
 
 def seed_everything(seed):
     random.seed(seed)
